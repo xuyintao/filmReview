@@ -25,6 +25,15 @@
     "vuex": "^2.2.1"
   },
   "devDependencies": {
-    "babel-core": "^6.24.0"
+    "babel-core": "^6.24.0",
+    "css-loader": "^0.27.3",
+    "file-loader": "^0.10.1",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.2",
+    "style-loader": "^0.16.0",
+    "vue-loader": "^11.3.1",
+    "vue-template-compiler": "^2.2.4",
+    "webpack": "^2.3.1",
+    "webpack-dev-server": "^2.4.2"
   }
 }

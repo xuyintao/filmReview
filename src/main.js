@@ -3,7 +3,8 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import router from './router'
 
-const app = new Vue({
+new Vue({
+  el: '#app',
   router,
   render: h => h(App)
-}).$mount('#app')
+})

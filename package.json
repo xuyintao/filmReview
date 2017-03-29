@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/xuyintao/filmReview#readme",
   "dependencies": {
+    "element-ui": "^1.2.7",
     "vue": "^2.2.4",
     "vue-router": "^2.3.0",
     "vuex": "^2.2.1"
@@ -28,6 +29,7 @@
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
     "babel-preset-env": "^1.2.2",
+    "babel-preset-stage-1": "^6.22.0",
     "cross-env": "^3.2.4",
     "css-loader": "^0.27.3",
     "file-loader": "^0.10.1",

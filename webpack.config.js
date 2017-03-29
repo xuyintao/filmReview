@@ -21,7 +21,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: 'style-loader!css-loader#sourceMap'
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,

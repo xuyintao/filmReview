@@ -2,18 +2,17 @@
 
 </style>
 <template>
-<div class="home">
-test home
+<div class="">
+test top
 </div>
 </template>
-export default{
-  data:{
+<script>
+export default {
+  name: '',
+  data () {
+    return {
 
-  },
-  computed:{
-
-  },
-  methods:{
-
+    }
   }
 }
+</script>

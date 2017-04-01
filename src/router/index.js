@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../pages/home/home'
+import home from '../pages/home/home'
 import trailer from '../pages/trailer/trailer'
 import article from '../pages/article/article'
 import video from '../pages/video/video'
 import discuss from '../pages/discuss/discuss'
 import comment from '../pages/comment/comment'
 import user from '../pages/user/user'
+import detail from '../pages/detail/detail'
 
 Vue.use(Router)
 
@@ -14,8 +15,8 @@ export const router=new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: Home
+      name: 'home',
+      component: home
     },
     {
       path: '/trailer',
@@ -46,6 +47,11 @@ export const router=new Router({
       path: '/user',
       name: 'user',
       component: user
+    },
+    {
+      path: '/detail',
+      name: 'detail',
+      component: detail
     }
   ]
 })

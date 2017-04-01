@@ -10,7 +10,6 @@
     </el-breadcrumb>
   </div>
 
-  <div>{{username}}</div>
 </div>
 </template>
 <script>
@@ -22,9 +21,7 @@ export default {
     }
   },
   computed:{
-    username(){
-      return this.$store.state.login.username
-    }
+
   }
 }
 </script>

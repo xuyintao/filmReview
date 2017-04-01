@@ -5,6 +5,7 @@ import * as mutations from './mutations'
 
 import login from './modules/login'
 import user from './modules/user'
+import pages from './modules/pages'
 
 Vue.use(Vuex)
 export default new Vuex.Store({
@@ -12,6 +13,7 @@ export default new Vuex.Store({
   mutations,
   modules:{
     login,
-    user
+    user,
+    pages
   }
 })

@@ -2,6 +2,7 @@
 @import '../assets/css/public.css';
 @web-width:1000px;
 @nav-width:220px;
+
 .app{
 
 }
@@ -18,7 +19,7 @@
 .content-search{
   position: fixed;
   width: @web-width;
-  top:30px;
+  top:0;
   left:50%;
   margin-left: -@web-width/2;
 }
@@ -52,6 +53,7 @@
 .tag-open{
   left:12px;
 }
+
 //左侧动画
 .slide-fade-enter-active ,.slide-fade-leave-active{
   transition: all 0.2s ease-in;
@@ -72,8 +74,8 @@
         </div>
       </transition>
     </div>
-    <div class="content">
-      <div class="content-search"><search></search></div>
+    <div class="content" :style="{'margin-top':activePage==0?'0':'100px'}">
+      <div class="content-search" v-if="activePage==1"><search></search></div>
       <div class="content-pages">
         <router-view></router-view>
       </div>
@@ -85,6 +87,7 @@
 import home from '../pages/home/home'
 import left from '../pages/nav/left'
 import search from '../pages/search/search'
+//import types from '../store/types.js'
 export default {
   name: 'app',
   data () {
@@ -97,6 +100,11 @@ export default {
     left,
     search
 	},
-  
+  computed:{
+    activePage(){
+      return this.$store.state.pages.activePage;
+    }
+  }
+
 }
 </script>

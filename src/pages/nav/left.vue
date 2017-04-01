@@ -8,24 +8,35 @@
 .nav{
   position: relative;
   margin:30px 20px;
+
   ul{
     li{
       width: 100%;
       height: 45px;
       line-height: 45px;
+      a{
+        text-decoration: none;
+        color: #555;
+        &:hover{
+          color: #4ea8f3;
+        }
+      }
+      &.active{
+        a{
+          color:#4ea8f3;
+        }
+      }
     }
   }
 }
-a{
-  text-decoration: none;
-}
+
 </style>
 <template>
 <div class="left">
   <login></login>
   <div class="nav">
-    <ul v-for="item in navList">
-      <li><router-link :to="'/'+item.en">{{item.cn}}</router-link></li>
+    <ul>
+      <li v-for="item in navList" :class="{'active':item.en==active}" @click="getActive(item.en)"><router-link :to="'/'+item.en">{{item.cn}}</router-link></li>
     </ul>
   </div>
 </div>
@@ -37,11 +48,20 @@ export default {
   name: 'left',
   data () {
     return {
-      navList:config.nav
+      navList:config.nav,
+      active:""
     }
   },
   components:{
     login
+  },
+  methods:{
+    getActive(item){
+      this.active=item;
+    }
+  },
+  mounted(){
+
   }
 }
 </script>

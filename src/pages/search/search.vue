@@ -47,11 +47,11 @@ export default {
   },
   watch:{
     $route(){
-      this.active=this.$route.name;
+      this.active=this.$route.name!='home'?this.$route.name:'';
     }
   },
   mounted(){
-    this.active=this.$route.name;
+    this.active=this.$route.name!='home'?this.$route.name:'';
   }
 }
 </script>

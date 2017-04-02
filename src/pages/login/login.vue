@@ -63,7 +63,7 @@
 <template>
 <div class="login">
   <div v-if="status==0">
-    <div class="line"><el-input v-model="username" placeholder="用户名"></el-input></div>
+    <div class="line"><el-input v-model="username" placeholder="昵称"></el-input></div>
     <div class="line"><el-input v-model="password" type="password" placeholder="密码" @keyup.enter.native="login"></el-input></div>
     <div class="line">
       <el-button type="primary" size="small" @click.native="login">登录</el-button>

@@ -27,6 +27,29 @@
   border:1px solid #ccc;
   border-radius: 2px;
   margin-bottom:80px;
+  padding: 20px;
+  li{
+    margin-top:10px;
+    border-bottom: 1px solid #eee;
+    .comment-user{
+      span{
+        display: inline-block;
+        &.time{
+          color: #555;
+          font-size: 14px;
+          margin-left: 10px;
+        }
+        &.good{
+          float: right;
+          color: #4ea8f3;
+        }
+      }
+    }
+    .comment-val{
+      line-height: 30px;
+      text-indent: 20px;
+    }
+  }
 }
 .comment-input{
   position: fixed;
@@ -55,9 +78,9 @@
     </div>
     <div class="detail-comment">
       <ul>
-        <li>
-          <div class="comment-user"><span>机器人</span> <span>2017-01-01</span></div>
-          <div class="comment-val">test comment</div>
+        <li v-for="item in commentData">
+          <div class="comment-user"><span>{{item.username}}</span> <span class="time">{{item.time}}</span> <span class="good">赞</span></div>
+          <div class="comment-val">{{item.val}}</div>
         </li>
       </ul>
     </div>
@@ -66,7 +89,7 @@
         type="textarea"
         :autosize="{ minRows: 2, maxRows: 4}"
         placeholder="请输入评论"
-        v-model="comment">
+        v-model="comment" @keyup.enter.native="submit">
       </el-input>
     </div>
   </div>
@@ -80,11 +103,36 @@ export default {
   data () {
     return {
       data:{},
-      comment:""
+      comment:"",
+      commentData:[
+        {
+          username:'机器人01',
+          time:'2017-1-1',
+          val:'测试评论功能'
+        },
+        {
+          username:'机器人02',
+          time:'2017-10-1',
+          val:'输入评论，点击enter即可发表评论'
+        },
+        {
+          username:'机器人03',
+          time:'2017-1-11',
+          val:'test comment'
+        }
+      ]
     }
   },
   watch:{
 
+  },
+  methods:{
+    submit(){
+      var time=new Date().getFullYear()+"-"+(new Date().getMonth()+1)+"-"+new Date().getDate();
+      var username=this.$store.state.login.username;
+      this.commentData.unshift({username:username,time:time,val:this.comment})
+      this.comment="";
+    }
   },
   beforeRouteEnter (to, from, next) {
     next(vm => {

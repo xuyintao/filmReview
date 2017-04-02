@@ -1,6 +1,6 @@
 <style lang="less" scoped>
 @import '../assets/css/public.css';
-@web-width:1000px;
+@web-width:800px;
 @nav-width:220px;
 
 .app{
@@ -33,8 +33,8 @@
   top:0;
   left:-@nav-width;
   padding-top: 40px;
-  border-right: 1px solid #ccc;
-  background: #D3DCE6;
+  border-right: 1px solid #e5e5e5;
+  background: #e3ebec;
 }
 .nav-open{
   left:0;
@@ -46,6 +46,7 @@
   z-index: 100;
   width: 200px;
   transition: all 0.2s ease-in;
+  cursor: pointer;
   img{
     width:100%;
   }

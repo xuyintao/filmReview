@@ -15,3 +15,11 @@ p{
   text-indent: 30px;
   margin:0;
 }
+a{
+  text-decoration: none;
+  color: #555;
+  cursor: pointer;
+}
+a:hover{
+  color: #1D8CE0;
+}

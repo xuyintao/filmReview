@@ -64,7 +64,7 @@
 <div class="login">
   <div v-if="status==0">
     <div class="line"><el-input v-model="username" placeholder="用户名"></el-input></div>
-    <div class="line"><el-input v-model="password" type="password" placeholder="密码"></el-input></div>
+    <div class="line"><el-input v-model="password" type="password" placeholder="密码" @keyup.enter.native="login"></el-input></div>
     <div class="line">
       <el-button type="primary" size="small" @click.native="login">登录</el-button>
       <el-button size="small" @click.native="register">注册</el-button>
@@ -119,6 +119,7 @@ export default {
       this.$store.commit(types.setStatus,1);
       localStorage.setItem("un/film", this.username);
       localStorage.setItem("pd/film", this.password);
+      localStorage.setItem("st/film", this.status);
     },
     login(){
       if(!this.username || !this.password) return false;
@@ -126,6 +127,7 @@ export default {
       var pwd=localStorage.getItem("pd/film");
       if(uname==this.username&&pwd==this.password){
         this.$store.commit(types.setStatus,1);
+        localStorage.setItem("st/film", this.status);
       }else{
         this.$message({
           message: '用户名或密码错误',
@@ -135,18 +137,18 @@ export default {
     },
     signOut(){
       this.$store.commit(types.setStatus,0);
+      localStorage.setItem("st/film", 0);
     }
   },
   mounted(){
-    this.$nextTick(function(){
-      var uname=localStorage.getItem("un/film");
-      var pwd=localStorage.getItem("pd/film");
-      if(uname&&pwd){
-        this.$store.commit(types.setStatus,1);
-        this.$store.commit(types.setName,uname);
-        this.$store.commit(types.setPassword,pwd);
-      }
-    })
+    var uname=localStorage.getItem("un/film");
+    var pwd=localStorage.getItem("pd/film");
+    var st=localStorage.getItem("st/film");
+    if(uname&&pwd&&st!=0){
+      this.$store.commit(types.setStatus,1);
+      this.$store.commit(types.setName,uname);
+      this.$store.commit(types.setPassword,pwd);
+    }
   }
 }
 </script>

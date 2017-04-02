@@ -36,7 +36,7 @@
   <login></login>
   <div class="nav">
     <ul>
-      <li v-for="item in navList" :class="{'active':item.en==active}" @click="getActive(item.en)"><router-link :to="'/'+item.en">{{item.cn}}</router-link></li>
+      <li v-for="item in navList" :class="{'active':item.en==active}"><router-link :to="'/'+item.en">{{item.cn}}</router-link></li>
     </ul>
   </div>
 </div>
@@ -55,13 +55,16 @@ export default {
   components:{
     login
   },
-  methods:{
-    getActive(item){
-      this.active=item;
+  watch:{
+    $route(){
+      this.active=this.$route.name;
     }
   },
-  mounted(){
+  methods:{
 
+  },
+  mounted(){
+    this.active=this.$route.name;
   }
 }
 </script>

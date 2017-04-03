@@ -54,10 +54,33 @@
 .tag-open{
   left:12px;
 }
-
+.nav-tag{
+  width: 30px;
+  line-height: 30px;
+  background: #fff;
+  border: 1px solid #eee;
+  position: fixed;
+  top:0;
+  left: 0;
+  text-align: center;
+  padding: 6px;
+  z-index:100;
+  transition: all 0.3s ease-in;
+}
+.nav-tag-open{
+  width: 220px;
+  padding: 0;
+  line-height: 45px;
+  border: none;
+  background: initial;
+  border-bottom: 1px solid #ddd;
+  word-spacing: 5px;
+  letter-spacing: 2px;
+  font-size: 18px;
+}
 //左侧动画
 .slide-fade-enter-active ,.slide-fade-leave-active{
-  transition: all 0.2s ease-in;
+  transition: all 0.3s ease-in;
 }
 .slide-fade-enter,.slide-fade-leave-active{
   left:-@nav-width;
@@ -66,9 +89,10 @@
 <template>
   <div class="app">
     <div class="app-left">
-      <div class="tag" @click="show=!show" :class="{'tag-open':show}">
+      <!-- <div class="tag" @click="show=!show" :class="{'tag-open':show}">
         <img src="src/assets/images/arrow-open.png" alt=""/>
-      </div>
+      </div> -->
+      <div class="nav-tag" @click="show=!show" :class="{'nav-tag-open':show}">导航君</div>
       <transition name="slide-fade">
         <div class="nav-left" v-show="show" :class="{'nav-open':show}">
           <left></left>

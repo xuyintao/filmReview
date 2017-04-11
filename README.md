@@ -7,6 +7,8 @@ git clone https://github.com/xuyintao/filmReview.git<br/>
 cd filmReview<br/>
 npm install<br/>
 npm run dev<br/>
+<h2>项目预览</h2>
+<a href="https://xuyintao.github.io/#/">预览</a>
 <h2>部分截图</h2>
 <img src="src/assets/images/01.png" alt=""/>
 <img src="src/assets/images/02.png" alt=""/>

@@ -6,7 +6,6 @@ import VueRouter from 'vue-router'
 import {router} from './router'
 import store from './store'
 
-
 Vue.use(ElementUI)
 new Vue({
   el: '#app',
